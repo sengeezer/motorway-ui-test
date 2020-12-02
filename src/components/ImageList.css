@@ -5,7 +5,7 @@
   grid-auto-rows: 10px;
 }
 
-.imageList img {
+.imageList img.main-image {
   width: 250px;
   grid-row-end: span 2;
 }

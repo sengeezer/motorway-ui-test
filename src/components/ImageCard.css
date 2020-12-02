@@ -1,0 +1,12 @@
+.image-card {
+  position: relative;
+}
+
+.profile-image {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;
+}
