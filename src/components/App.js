@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from '@material-ui/core';
 import ImageList from './ImageList';
 import './App.css';
 
@@ -18,9 +19,9 @@ const App = () => {
   }, []);
 
   return (
-    <div className="ui container App">
+    <Container maxWidth="sm">
       { images ? <ImageList images={images} /> : <p>Loading...</p> }
-    </div>
+    </Container>
   );
 }
 
