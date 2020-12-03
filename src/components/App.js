@@ -19,7 +19,7 @@ const App = () => {
   }, []);
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="lg">
       { images ? <ImageList images={images} /> : <p>Loading...</p> }
     </Container>
   );
