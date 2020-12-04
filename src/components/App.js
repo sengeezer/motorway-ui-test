@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import ImageList from './ImageList';
+import Header from './Header';
 import './App.css';
 
 const App = () => {
@@ -10,18 +11,22 @@ const App = () => {
     fetch('images?limit=10')
       .then(res => res.json())
       .then(data => {
-        console.log('Success:', data);
         setImages(data);
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error('Data fetch error:', error);
       });
   }, []);
 
   return (
+    <>
+    <Header />
     <Container maxWidth="lg">
-      { images ? <ImageList images={images} /> : <p>Loading...</p> }
+      <Box mt="20px">
+        { images ? <ImageList images={images} /> : <p>Loading...</p> }
+      </Box>
     </Container>
+    </>
   );
 }
 
