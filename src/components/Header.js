@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import PhotoIcon from '@material-ui/icons/Photo';
+import ImageSizeSlider from './ImageSizeSlider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,7 @@ const Header = () => {
           <Typography variant="h6" className={classes.title}>
             Images
           </Typography>
-          <Button color="inherit">Login</Button>
+          <ImageSizeSlider />
         </Toolbar>
       </AppBar>
     </div>
