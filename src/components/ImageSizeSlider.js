@@ -1,5 +1,5 @@
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { Slider, Tooltip, Typography } from '@material-ui/core';
+import { Slider, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,40 +10,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const marks = [
-  {
-    value: 0,
-    label: '75%',
-  },
-  {
-    value: 25,
-    label: 'default',
-  },
-  {
-    value: 50,
-    label: '125%',
-  },
-  {
-    value: 75,
-    label: '150%',
-  },
-  {
-    value: 100,
-    label: '200%',
-  },
-];
-
 const valuetext = value => (`${value}% change in image size`);
-
-const ValueLabelComponent = ({ children, open, value }) => (
-    <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
-      {children}
-    </Tooltip>
-);
 
 const StyledSlider = withStyles({
   root: {
-    color: '#52af77',
+    color: '#0bf',
     height: 8,
   },
   thumb: {
@@ -71,24 +42,23 @@ const StyledSlider = withStyles({
   },
 })(Slider);
 
-const ImageSizeSlider = () => {
+const ImageSizeSlider = ({ updatePictureSize }) => {
   const classes = useStyles();
+  const onSliderChange = (event, newValue) => {
+    console.log(newValue);
+    // updatePictureSize(newValue);
+  };
 
   return (
     <div className={classes.root}>
-      {/* <Typography id="image-slider" variant="subtitle1">
-        Image Size
-      </Typography>
-      <Slider
-        defaultValue={0}
+      <Typography id="image-slider" gutterBottom>Image Size</Typography>
+      <StyledSlider
+        defaultValue={20}
         getAriaValueText={valuetext}
         aria-labelledby="image-slider"
-        step={25}
         valueLabelDisplay="auto"
-        marks={marks}
-      /> */}
-      <Typography gutterBottom>Image Size</Typography>
-      <StyledSlider valueLabelDisplay="auto" aria-label="Image size slider" defaultValue={20} />
+        onChange={onSliderChange}
+      />
     </div>
   );
 };
